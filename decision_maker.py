@@ -1,4 +1,3 @@
-#from getpass import getpass
 from easygui import passwordbox
 
 dict_cat_opt = {"Totally lazy": ["Couchpotato", "Wellness", "Cinema"],
@@ -53,7 +52,7 @@ class RPS:
             print(self.message["decision"].format(j, i))
             return j
 
-    def play_RPS(self):
+    def play_rps(self):
         rps_choices = {}
         for i in self.list_of_players:
             players_rps_choice = passwordbox("{}, please enter Rock (R), Paper (P) or Scissors (S): ".format(i))
@@ -72,9 +71,9 @@ def decide_category(players_categories):
     else:
         print("\nYou\'ve chosen different categories: {} and {} "
               "\nLet\'s play Rock, Paper or Scissors to decide.\n".format(cat_list[0], cat_list[1]))
-        winner = RPS(list_of_players).play_RPS()
+        winner = RPS(list_of_players).play_rps()
         if winner == 0:
-            winner = RPS(list_of_players).play_RPS()
+            winner = RPS(list_of_players).play_rps()
         chosen_category = players_categories[winner]
     return chosen_category
 
