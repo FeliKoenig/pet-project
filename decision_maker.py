@@ -1,6 +1,6 @@
 from easygui import passwordbox
 
-dict_cat_opt = {"Totally lazy": ["Couchpotato", "Wellness", "Cinema"],
+dict_cat_act = {"Totally lazy": ["Couchpotato", "Wellness", "Cinema"],
                 "Slightly active": ["Meet friends", "Restaurant", "Bar"],
                 "Going crazy": ["Barhopping", "Club", "Clubhopping"]}
 
@@ -13,11 +13,24 @@ class Player:
     def __init__(self, name):
         self.name = name
         self.category = ""
-        self.option = ""
+        self.activity = ""
 
     def choose_category(self):
         category = input("Choose your preferred category: ")
-        self.category = [*dict_cat_opt][int(category)-1]
+        self.category = [*dict_cat_act][int(category)-1]
+
+    def choose_activity(self, chosen_category):
+        activity = input("Choose your preferred activity: ")
+        self.activity = [*dict_cat_act][chosen_category][int(activity)-1]
+
+
+class FlipCoin:
+    """
+        Flipping a coin
+    """
+
+    def __init__(self):
+        pass
 
 
 
@@ -75,7 +88,20 @@ def decide_category(players_categories):
         if winner == 0:
             winner = RPS(list_of_players).play_rps()
         chosen_category = players_categories[winner]
+        print("\nSo, the chosen category is: {}".format(chosen_category))
     return chosen_category
+
+
+# function to get and store the category choice
+def choose_activities(list_of_players, chosen_category):
+    players_activities={}
+    for i in list_of_players:
+        print("\n{}, which activity would you prefer? (1) {}, (2) {} or (3) {}"
+              .format(i.name, dict_cat_act[chosen_category][0], dict_cat_act[chosen_category][1],
+                      dict_cat_act[chosen_category][2]))
+        i.choose_activity(chosen_category)
+        players_activities[i.name] = i.activity
+    return players_activities
 
 
 # function to get and store the category choice
@@ -83,7 +109,7 @@ def choose_categories(list_of_players):
     players_categories={}
     for i in list_of_players:
         print("\n{}, in which mood are you today? (1) {}, (2) {} or (3) {}"
-              .format(i.name, [*dict_cat_opt][0], [*dict_cat_opt][1], [*dict_cat_opt][2]))
+              .format(i.name, [*dict_cat_act][0], [*dict_cat_act][1], [*dict_cat_act][2]))
         i.choose_category()
         players_categories[i.name] = i.category
     return players_categories
@@ -102,4 +128,5 @@ if __name__ == '__main__':
     list_of_players = set_players()
     players_categories = choose_categories(list_of_players)
     category = decide_category(players_categories)
-
+    players_activities = choose_activities(list_of_players, category)
+    activity = decide_category(players_activities)
