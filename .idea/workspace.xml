@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="90ba1921-40f4-4f3e-acfb-92ba69d24196" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/decision_maker.py" beforeDir="false" afterPath="$PROJECT_DIR$/decision_maker.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,19 +21,30 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="438" />
-          <entry key="txt" value="25" />
+          <entry key="Python Console" value="111" />
+          <entry key="py" value="6005" />
+          <entry key="txt" value="40" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="25" />
-          <entry key="Python" value="438" />
+          <entry key="PLAIN_TEXT" value="40" />
+          <entry key="Python" value="6116" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
         <counts>
           <entry key="git.branch.rebase" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="py" value="4" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="Python" value="4" />
         </counts>
       </usages-collector>
     </session>
@@ -42,8 +54,16 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/decision_maker.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="132" lean-forward="true" selection-start-line="132" selection-end-line="132" />
+            <state relative-caret-position="389">
+              <caret line="291" column="50" lean-forward="true" selection-start-line="291" selection-start-column="50" selection-end-line="291" selection-end-column="50" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+                <marker date="1546882014073" expanded="true" signature="2941:6386" ph="..." />
+                <marker date="1546882014073" expanded="true" signature="3103:3112" ph="..." />
+                <marker date="1546882014073" expanded="true" signature="3775:4259" ph="..." />
+                <marker date="1546882014073" expanded="true" signature="6401:6406" ph="..." />
+                <marker date="1546882014073" expanded="true" signature="9039:9042" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -60,11 +80,10 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="360" />
-    <option name="y" value="322" />
-    <option name="width" value="980" />
-    <option name="height" value="1040" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="952" />
+    <option name="width" value="977" />
+    <option name="height" value="1038" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -153,24 +172,38 @@
       <option name="project" value="LOCAL" />
       <updated>1546783323881</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="added choice of activity 2">
+      <created>1546783687862</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1546783687862</updated>
+    </task>
+    <task id="LOCAL-00004" summary="added tictactoe">
+      <created>1546798183656</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1546798183657</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="762" y="0" width="781" height="830" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24983476" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.5080645" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Version Control" visible="true" weight="0.32907802" />
-      <window_info anchor="bottom" id="Python Console" />
-      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Version Control" weight="0.32855093" />
+      <window_info anchor="bottom" id="Python Console" weight="0.32998565" />
+      <window_info anchor="bottom" id="Terminal" weight="0.32998565" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32907802" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32855093" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39885223" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -228,13 +261,37 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added choice of activity" />
-    <option name="LAST_COMMIT_MESSAGE" value="added choice of activity" />
+    <MESSAGE value="added choice of activity 2" />
+    <MESSAGE value="added tictactoe" />
+    <option name="LAST_COMMIT_MESSAGE" value="added tictactoe" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/codecs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="123">
+          <caret line="320" selection-start-line="320" selection-end-line="320" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/urllib/parse.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="777" selection-start-line="777" selection-end-line="777" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/decision_maker.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="132" lean-forward="true" selection-start-line="132" selection-end-line="132" />
+        <state relative-caret-position="389">
+          <caret line="291" column="50" lean-forward="true" selection-start-line="291" selection-start-column="50" selection-end-line="291" selection-end-column="50" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+            <marker date="1546882014073" expanded="true" signature="2941:6386" ph="..." />
+            <marker date="1546882014073" expanded="true" signature="3103:3112" ph="..." />
+            <marker date="1546882014073" expanded="true" signature="3775:4259" ph="..." />
+            <marker date="1546882014073" expanded="true" signature="6401:6406" ph="..." />
+            <marker date="1546882014073" expanded="true" signature="9039:9042" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

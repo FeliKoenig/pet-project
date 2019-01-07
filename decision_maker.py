@@ -1,4 +1,20 @@
+"""
+    Game Descision Tree (for 2 Players)
+    Goal:       Decide a weekend/evening activity
+    Process:    - each player choose a category
+                - play tic tac toe to decide the category
+                - each player choose an activity for the chosen category
+                - play rock paper scissors to decide the activity
+                - have fun doing your fairly decided weekend/evening activity
+"""
+
+# add time delay [time.sleep(seconds)]
+# class for players-categories-activities - inherit to gaming classes
+# add exceptions
+# complete tic tac toe
+
 import random
+import time
 from easygui import passwordbox
 
 dict_cat_act = {"Totally lazy": ["Couchpotato", "Wellness", "Cinema"],
@@ -94,12 +110,22 @@ class TicTacToe:
 
     def choose_letters(self):
         self.letters[0] = input("\n{}, please choose a letter: X or O ".format(self.list_of_players[0])).upper()
+        # check if input was valid
+        while self.letters[0] not in ['X', 'O']:
+            self.letters[0] = input("\nPlease try again. Choose a letter: X or O ".format(self.list_of_players[0])).upper()
+
+        # ordering the list of letters
         if self.letters[0] == 'X':
             self.letters[1] = 'O'
         else:
             self.letters[1] = 'X'
 
     def make_move(self, move, letter):
+        # check if input was valid
+        while (move not in range(1,10)) or (self.board[move-1] != ' '):
+            move = int(input("Please choose an empty field with a number between 1 and 9! "))
+
+        # change board and draw updated version
         self.board[move-1] = letter
         self.draw_board()
 
@@ -121,19 +147,21 @@ class TicTacToe:
                 return 0
 
     def play_tictactoe(self):
+        # show the board and first player select a letter
         self.draw_board()
         self.choose_letters()
+
+        # start playing
         move = input("What is your first move? Choose 1 - 9. ")
         self.make_move(int(move), self.letters[0])
         move = input("Now, it's your turn, {}. Choose a position. ".format(self.list_of_players[1]))
         self.make_move(int(move), self.letters[1])
         for i in range(7):
-            if i % 2 == 0:
-                j=0
-            else:
-                j=1
+            j = i % 2
             move = input("Next {}: ".format(self.list_of_players[j]))
             self.make_move(int(move), self.letters[j])
+
+            # check if someone won
             winner = self.check_winner()
             if winner != 0:
                 print("Yeah, {} you won!".format(winner))
@@ -146,19 +174,28 @@ class TossCoin:
         Tossing a coin
     """
 
-    def __init__(self):
-        self.toss = ""
+    def __init__(self, players):
+        self.players = players
 
     def toss_coin(self):
-        toss = random.randint(0,1)
-        if toss == 0:
-            self.toss = "heads"
-        else:
-            self.toss = "tails"
-        return self.toss
+        starter_dict = {0: ['heads', self.players[0]], 1: ['tails', self.players[1]]}
+
+        # toss a coin
+        toss = random.randint(0, 1)
+
+        # select the starter
+        starter = starter_dict[toss]
+        print("\nOk, the coin shows {}, so {} will start. Let's play Tic Tac Toe.\n"
+              .format(starter[0], starter[1]))
+
+        # change order of players
+        if not self.players[0] == starter[1]:
+            self.players.reverse()
+
+        return self.players
 
 
-# function to decide the activity
+# function to decide the activity (rock paper scissors)
 def decide_activity(players_activities):
     act_list = list(players_activities.values())
     list_of_players = list(players_activities.keys())
@@ -176,35 +213,40 @@ def decide_activity(players_activities):
     return chosen_activity
 
 
+# function to decide the category (tic tac toe)
 def decide_category(players_categories):
     cat_list = list(players_categories.values())
-    list_of_players = list(players_categories.keys())
+    players = list(players_categories.keys())
+
+    # check if chosen categories are the same
     if cat_list[0] == cat_list[1]:
         chosen_category = cat_list[0]
-        print("\nYou\'ve chosen the same category: {}".format(chosen_category))
+        print("\nYou've chosen the same category: {}".format(chosen_category))
     else:
-        print("\nYou\'ve chosen different categories: {} and {}.\n"
-              "\nLet\'s play Tic Tac Toe to decide."
+        print("\nYou've chosen different categories: {} and {}.".format(cat_list[0], cat_list[1]))
+        time.sleep(0.5)
+        print("\nLet's play Tic Tac Toe to decide."
               "\nBut first, we toss a coin to decide who should start. "
               "\nIf the coin shows heads, {} starts. If it lands tails up, then {} is first."
-              .format(cat_list[0], cat_list[1], list_of_players[0], list_of_players[1]))
-        starter_dict = {"heads": list_of_players[0], "tails": list_of_players[1]}
-        coin_result = TossCoin().toss_coin()
-        starter = starter_dict[coin_result]
-        print("\nOk, the coin shows {}, so {} will start. Let's play Tic Tac Toe.\n"
-              .format(coin_result, starter))
-        if not list_of_players[0]==starter:
-            list_of_players.reverse()
+              .format(players[0], players[1]))
+        time.sleep(0.5)
+        print("...")
+        time.sleep(1)
 
-        winner = TicTacToe(list_of_players).play_tictactoe()
+        # toss a coin to decide who should start playing tic tac toe
+        players_ordered = TossCoin(players).toss_coin()
+        time.sleep(2)
+
+        # playing tic tac toe to decide the category
+        winner = TicTacToe(players_ordered).play_tictactoe()
         chosen_category = players_categories[winner]
     return chosen_category
 
 
-# function to get and store the category choice
-def choose_activities(list_of_players, chosen_category):
+# function to get and store the activity choice
+def choose_activities(players, chosen_category):
     players_activities={}
-    for i in list_of_players:
+    for i in players:
         print("\n{}, which activity would you prefer? (1) {}, (2) {} or (3) {}"
               .format(i.name, dict_cat_act[chosen_category][0], dict_cat_act[chosen_category][1],
                       dict_cat_act[chosen_category][2]))
@@ -214,9 +256,9 @@ def choose_activities(list_of_players, chosen_category):
 
 
 # function to get and store the category choice
-def choose_categories(list_of_players):
+def choose_categories(players):
     players_categories={}
-    for i in list_of_players:
+    for i in players:
         print("\n{}, in which mood are you today? (1) {}, (2) {} or (3) {}"
               .format(i.name, [*dict_cat_act][0], [*dict_cat_act][1], [*dict_cat_act][2]))
         i.choose_category()
@@ -234,9 +276,17 @@ def set_players():
 
 
 if __name__ == '__main__':
-    list_of_players = set_players()
-    players_categories = choose_categories(list_of_players)
+    # insert the names of the players
+    players = set_players()
+
+    # each player choose a category
+    players_categories = choose_categories(players)
+
+    # play tic tac toe to decide the category
     category = decide_category(players_categories)
-    print(category)
-    #players_activities = choose_activities(list_of_players, category)
-    #activity = decide_activity(players_activities)
+
+    # each player choose an activity out of the chosen category
+    players_activities = choose_activities(players, category)
+
+    # play rock-paper-scissors to decide finally the activity
+    activity = decide_activity(players_activities)
