@@ -6,7 +6,7 @@ pipeline {
   stages {
      stage('Jenkins Test') {
        steps {
-         bat 'python --version'
+         bat 'echo hello world'
        }
        post{
          always {
