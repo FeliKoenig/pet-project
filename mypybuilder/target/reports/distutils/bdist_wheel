@@ -1,0 +1,45 @@
+running clean
+'build\lib' does not exist -- can't clean it
+'build\bdist.win-amd64' does not exist -- can't clean it
+'build\scripts-3.5' does not exist -- can't clean it
+running bdist_wheel
+running build
+running build_py
+creating build
+creating build\lib
+creating build\lib\mypybuilder
+copying mypybuilder\__init__.py -> build\lib\mypybuilder
+running build_scripts
+creating build\scripts-3.5
+copying scripts\greeter -> build\scripts-3.5
+installing to build\bdist.win-amd64\wheel
+running install
+running install_lib
+creating build\bdist.win-amd64
+creating build\bdist.win-amd64\wheel
+creating build\bdist.win-amd64\wheel\mypybuilder
+copying build\lib\mypybuilder\__init__.py -> build\bdist.win-amd64\wheel\.\mypybuilder
+running install_egg_info
+running egg_info
+writing top-level names to mypybuilder.egg-info\top_level.txt
+writing mypybuilder.egg-info\PKG-INFO
+writing dependency_links to mypybuilder.egg-info\dependency_links.txt
+writing namespace_packages to mypybuilder.egg-info\namespace_packages.txt
+reading manifest file 'mypybuilder.egg-info\SOURCES.txt'
+writing manifest file 'mypybuilder.egg-info\SOURCES.txt'
+Copying mypybuilder.egg-info to build\bdist.win-amd64\wheel\.\mypybuilder-1.0.dev0-py3.5.egg-info
+running install_scripts
+creating build\bdist.win-amd64\wheel\mypybuilder-1.0.dev0.data
+creating build\bdist.win-amd64\wheel\mypybuilder-1.0.dev0.data\scripts
+copying build\scripts-3.5\greeter -> build\bdist.win-amd64\wheel\mypybuilder-1.0.dev0.data\scripts
+creating build\bdist.win-amd64\wheel\mypybuilder-1.0.dev0.dist-info\WHEEL
+creating 'dist\mypybuilder-1.0.dev0-py3-none-any.whl' and adding 'build\bdist.win-amd64\wheel' to it
+adding 'mypybuilder/__init__.py'
+adding 'mypybuilder-1.0.dev0.data/scripts/greeter'
+adding 'mypybuilder-1.0.dev0.dist-info/METADATA'
+adding 'mypybuilder-1.0.dev0.dist-info/WHEEL'
+adding 'mypybuilder-1.0.dev0.dist-info/namespace_packages.txt'
+adding 'mypybuilder-1.0.dev0.dist-info/top_level.txt'
+adding 'mypybuilder-1.0.dev0.dist-info/zip-safe'
+adding 'mypybuilder-1.0.dev0.dist-info/RECORD'
+removing build\bdist.win-amd64\wheel

@@ -1,0 +1,8 @@
+You are using pip version 10.0.1, however version 19.0.1 is available.
+You should consider upgrading via the 'python -m pip install --upgrade pip' command.
+1.3.3-py3-none-win_amd64.whl (21.5MB)
+Requirement already satisfied: setuptools in c:\users\felic\documents\datascience-master\1_semester\softwareengineering\pet-project\mypybuilder\venv\lib\site-packages (from pypandoc~=1.3.0) (39.0.1)
+Requirement already satisfied: wheel>=0.25.0 in c:\users\felic\documents\datascience-master\1_semester\softwareengineering\pet-project\mypybuilder\venv\lib\site-packages (from pypandoc~=1.3.0) (0.32.3)
+Requirement already satisfied: pip>=8.1.0 in c:\users\felic\documents\datascience-master\1_semester\softwareengineering\pet-project\mypybuilder\venv\lib\site-packages (from pypandoc~=1.3.0) (10.0.1)
+Installing collected packages: pypandoc
+Successfully installed pypandoc-1.3.3

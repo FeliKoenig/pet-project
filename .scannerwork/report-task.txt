@@ -1,7 +1,7 @@
 organization=felikoenig-github
 projectKey=FeliKoenig_pet-project
 serverUrl=https://sonarcloud.io
-serverVersion=7.6.0.20657
+serverVersion=7.6.0.21127
 dashboardUrl=https://sonarcloud.io/dashboard?id=FeliKoenig_pet-project
-ceTaskId=AWgZlqHLQSyaxOSqXHgA
-ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AWgZlqHLQSyaxOSqXHgA
+ceTaskId=AWhMR3ZDJY-UEDPihuXc
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AWhMR3ZDJY-UEDPihuXc
