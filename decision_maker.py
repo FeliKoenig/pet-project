@@ -8,18 +8,14 @@
                 - have fun doing your fairly decided weekend/evening activity
 """
 
-# add time delay [time.sleep(seconds)]
-# class for players-categories-activities - inherit to gaming classes
-# add exceptions
-# complete tic tac toe
-
 import random
 import time
 from easygui import passwordbox
+from functools import reduce
 
-dict_cat_act = {"Totally lazy": ["Couchpotato", "Wellness", "Cinema"],
-                "Slightly active": ["Meet friends", "Restaurant", "Bar"],
-                "Going crazy": ["Barhopping", "Club", "Clubhopping"]}
+dict_cat_act = {"Totally lazy": ("Couchpotato", "Wellness", "Cinema"),
+                "Slightly active": ("Meet friends", "Restaurant", "Bar"),
+                "Going crazy": ("Barhopping", "Club", "Clubhopping")}
 
 
 class Player:
@@ -32,13 +28,29 @@ class Player:
         self.category = ""
         self.activity = ""
 
+    # check if input was valid
+    def check_input(self, choice):
+        try:
+            choice = int(choice)
+        except:
+            pass
+        while (type(choice) != int) or (choice not in range(1,4)):
+            choice = input("Please choose number between 1 and 3! ")
+            try:
+                choice = int(choice)
+            except:
+                pass
+        return choice
+
     def choose_category(self):
         category = input("Choose your preferred category: ")
-        self.category = [*dict_cat_act][int(category)-1]
+        category = self.check_input(category)
+        self.category = [*dict_cat_act][category-1]
 
     def choose_activity(self, chosen_category):
         activity = input("Choose your preferred activity: ")
-        self.activity = dict_cat_act[chosen_category][int(activity)-1]
+        activity = self.check_input(activity)
+        self.activity = dict_cat_act[chosen_category][activity-1]
 
 
 class RPS:
@@ -53,7 +65,6 @@ class RPS:
                         "decision": "\nYay {}, you won! Sorry {}, maybe next time..."}
 
     def decide_winner(self, rps_choices):
-
         for i in self.list_of_players:
             print("\n{}, you selected: {}".format(i, rps_choices[i]))
 
@@ -73,11 +84,19 @@ class RPS:
             return j
 
     def play_rps(self):
+        # players select rock, paper or scissors
         rps_choices = {}
         for i in self.list_of_players:
-            players_rps_choice = passwordbox("{}, please enter Rock (R), Paper (P) or Scissors (S): ".format(i))
-            players_rps_choice = self.options[players_rps_choice.upper()]
+            players_rps_choice = passwordbox("{}, please enter Rock (R), Paper (P) or Scissors (S): ".format(i)).upper()
+
+            # check if input was valid
+            while players_rps_choice not in ['R', 'P', 'S']:
+                players_rps_choice = passwordbox("\nPlease try again. Choose a letter: R, P or S").upper()
+
+            players_rps_choice = self.options[players_rps_choice]
             rps_choices[i] = players_rps_choice
+
+        # decide the winner
         winner = self.decide_winner(rps_choices)
         return winner
 
@@ -122,11 +141,13 @@ class TicTacToe:
 
     def make_move(self, move, letter):
         # check if input was valid
-        while (move not in range(1,10)) or (self.board[move-1] != ' '):
-            move = int(input("Please choose an empty field with a number between 1 and 9! "))
+        while (type(move) != int) or (int(move) not in range(1,10)) or (self.board[int(move)-1] != ' '):
+            move = input("Please choose an empty field with a number between 1 and 9! ")
+            try: move = int(move)
+            except: pass
 
         # change board and draw updated version
-        self.board[move-1] = letter
+        self.board[int(move)-1] = letter
         self.draw_board()
 
     def check_winner(self):
@@ -153,13 +174,13 @@ class TicTacToe:
 
         # start playing
         move = input("What is your first move? Choose 1 - 9. ")
-        self.make_move(int(move), self.letters[0])
+        self.make_move(move, self.letters[0])
         move = input("Now, it's your turn, {}. Choose a position. ".format(self.list_of_players[1]))
-        self.make_move(int(move), self.letters[1])
+        self.make_move(move, self.letters[1])
         for i in range(7):
             j = i % 2
             move = input("Next {}: ".format(self.list_of_players[j]))
-            self.make_move(int(move), self.letters[j])
+            self.make_move(move, self.letters[j])
 
             # check if someone won
             winner = self.check_winner()
@@ -177,18 +198,41 @@ class TossCoin:
     def __init__(self, players):
         self.players = players
 
-    def toss_coin(self):
+    def toss_coin(self, trial):
+        toss = random.randint(0, 1)
+        return toss
+
+    def print_winner(self, starter):
+        message = "\nOk, the coin shows {}, so {} will start. Let's play Tic Tac Toe.\n"\
+            .format(starter[0], starter[1])
+
+        def print_message():
+            print(message)
+
+        return print_message
+
+
+    def ordering_players(self):
         starter_dict = {0: ['heads', self.players[0]], 1: ['tails', self.players[1]]}
 
         # toss a coin
-        toss = random.randint(0, 1)
+        toss_list = []
+        for i in map(self.toss_coin, range(3)):
+            toss_list.append(i)
 
-        # select the starter
+        cum_toss = reduce((lambda x, y: x + y),toss_list)
+
+        if cum_toss < 2:
+            toss = 0
+        else:
+            toss = 1
+
+        # select the beginner
         starter = starter_dict[toss]
-        print("\nOk, the coin shows {}, so {} will start. Let's play Tic Tac Toe.\n"
-              .format(starter[0], starter[1]))
+        winner_message = self.print_winner(starter)
+        winner_message()
 
-        # change order of players
+        # possibly change order of players
         if not self.players[0] == starter[1]:
             self.players.reverse()
 
@@ -205,6 +249,8 @@ def decide_activity(players_activities):
     else:
         print("\nYou\'ve chosen different activities: {} and {} "
               "\nLet\'s play Rock, Paper or Scissors to decide.\n".format(act_list[0], act_list[1]))
+
+        # playing rock paper scissors to decide the activity
         winner = RPS(list_of_players).play_rps()
         if winner == 0:
             winner = RPS(list_of_players).play_rps()
@@ -229,13 +275,13 @@ def decide_category(players_categories):
               "\nBut first, we toss a coin to decide who should start. "
               "\nIf the coin shows heads, {} starts. If it lands tails up, then {} is first."
               .format(players[0], players[1]))
-        time.sleep(0.5)
+        time.sleep(3)
         print("...")
-        time.sleep(1)
+        time.sleep(3)
 
         # toss a coin to decide who should start playing tic tac toe
-        players_ordered = TossCoin(players).toss_coin()
-        time.sleep(2)
+        players_ordered = TossCoin(players).ordering_players()
+        time.sleep(5)
 
         # playing tic tac toe to decide the category
         winner = TicTacToe(players_ordered).play_tictactoe()
@@ -258,11 +304,11 @@ def choose_activities(players, chosen_category):
 # function to get and store the category choice
 def choose_categories(players):
     players_categories={}
-    for i in players:
+    for p in players:
         print("\n{}, in which mood are you today? (1) {}, (2) {} or (3) {}"
-              .format(i.name, [*dict_cat_act][0], [*dict_cat_act][1], [*dict_cat_act][2]))
-        i.choose_category()
-        players_categories[i.name] = i.category
+              .format(p.name, [*dict_cat_act][0], [*dict_cat_act][1], [*dict_cat_act][2]))
+        p.choose_category()
+        players_categories[p.name] = p.category
     return players_categories
 
 
@@ -272,7 +318,7 @@ def set_players():
     player1 = Player(player1)
     player2 = input("Name of Player 2: ")
     player2 = Player(player2)
-    return [player1, player2]
+    return (player1, player2)
 
 
 if __name__ == '__main__':

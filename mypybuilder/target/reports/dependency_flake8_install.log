@@ -1,13 +1,13 @@
-You are using pip version 10.0.1, however version 19.0.1 is available.
+You are using pip version 10.0.1, however version 19.0.2 is available.
 You should consider upgrading via the 'python -m pip install --upgrade pip' command.
-py2.py3-none-any.whl (68kB)
-Collecting pycodestyle<2.6.0,>=2.5.0 (from flake8~=3.2)
-  Downloading https://files.pythonhosted.org/packages/0e/0c/04a353e104d2f324f8ee5f4b32012618c1c86dd79e52a433b64fceed511b/pycodestyle-2.5.0-py2.py3-none-any.whl (51kB)
+-py2.py3-none-any.whl
 Collecting entrypoints<0.4.0,>=0.3.0 (from flake8~=3.2)
-  Downloading https://files.pythonhosted.org/packages/ac/c6/44694103f8c221443ee6b0041f69e2740d89a25641e62fb4f2ee568f2f9c/entrypoints-0.3-py2.py3-none-any.whl
+  Using cached https://files.pythonhosted.org/packages/ac/c6/44694103f8c221443ee6b0041f69e2740d89a25641e62fb4f2ee568f2f9c/entrypoints-0.3-py2.py3-none-any.whl
+Collecting pycodestyle<2.6.0,>=2.5.0 (from flake8~=3.2)
+  Using cached https://files.pythonhosted.org/packages/0e/0c/04a353e104d2f324f8ee5f4b32012618c1c86dd79e52a433b64fceed511b/pycodestyle-2.5.0-py2.py3-none-any.whl
 Collecting pyflakes<2.2.0,>=2.1.0 (from flake8~=3.2)
-  Downloading https://files.pythonhosted.org/packages/16/3b/b6a508ad148ce1ef50bd7a9a783afbb8d775616fc4ae5e3007c8815a3c85/pyflakes-2.1.0-py2.py3-none-any.whl (62kB)
+  Using cached https://files.pythonhosted.org/packages/16/3b/b6a508ad148ce1ef50bd7a9a783afbb8d775616fc4ae5e3007c8815a3c85/pyflakes-2.1.0-py2.py3-none-any.whl
 Collecting mccabe<0.7.0,>=0.6.0 (from flake8~=3.2)
-  Downloading https://files.pythonhosted.org/packages/87/89/479dc97e18549e21354893e4ee4ef36db1d237534982482c3681ee6e7b57/mccabe-0.6.1-py2.py3-none-any.whl
-Installing collected packages: pycodestyle, entrypoints, pyflakes, mccabe, flake8
+  Using cached https://files.pythonhosted.org/packages/87/89/479dc97e18549e21354893e4ee4ef36db1d237534982482c3681ee6e7b57/mccabe-0.6.1-py2.py3-none-any.whl
+Installing collected packages: entrypoints, pycodestyle, pyflakes, mccabe, flake8
 Successfully installed entrypoints-0.3 flake8-3.7.5 mccabe-0.6.1 pycodestyle-2.5.0 pyflakes-2.1.0

@@ -13,3 +13,5 @@ class Test(TestCase):
         greet(mock_stdout)
 
         mock_stdout.write.assert_called_with("Hello world!\n")
+
+

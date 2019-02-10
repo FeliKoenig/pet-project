@@ -1,5 +1,10 @@
 {
-  "errors": [],
+  "errors": [
+    {
+      "test": "unittest.loader._FailedTest.mypybuilder_tests",
+      "traceback": "ImportError: Failed to import test module: mypybuilder_tests\nTraceback (most recent call last):\n  File \"c:\\users\\felic\\appdata\\local\\programs\\python\\python35\\lib\\unittest\\loader.py\", line 153, in loadTestsFromName\n    module = __import__(module_name)\n  File \"c:\\users\\felic\\documents\\datascience-master\\1_semester\\softwareengineering\\pet-project\\mypybuilder\\src\\unittest\\python\\mypybuilder_tests.py\", line 3, in <module>\n    from mock import Mock\nImportError: No module named 'mock'\n\n"
+    }
+  ],
   "failures": [],
   "tests-run": 1
 }
