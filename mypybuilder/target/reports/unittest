@@ -1,23 +1,11 @@
 
 Running tests...
 ----------------------------------------------------------------------
-E
-======================================================================
-ERROR [0.000s]: mypybuilder_tests (unittest.loader._FailedTest)
+.
 ----------------------------------------------------------------------
-ImportError: Failed to import test module: mypybuilder_tests
-Traceback (most recent call last):
-  File "c:\users\felic\appdata\local\programs\python\python35\lib\unittest\loader.py", line 153, in loadTestsFromName
-    module = __import__(module_name)
-  File "c:\users\felic\documents\datascience-master\1_semester\softwareengineering\pet-project\mypybuilder\src\unittest\python\mypybuilder_tests.py", line 3, in <module>
-    from mock import Mock
-ImportError: No module named 'mock'
+Ran 1 test in 0.001s
 
-
-----------------------------------------------------------------------
-Ran 1 test in 0.000s
-
-FAILED (errors=1)
+OK
 
 Generating XML reports...
-Generated XML report: c:\users\felic\documents\datascience-master\1_semester\softwareengineering\pet-project\mypybuilder\target\reports\TEST-unittest.loader._FailedTest-20190209194121.xml
+Generated XML report: c:\users\felic\documents\datascience-master\1_semester\softwareengineering\pet-project\mypybuilder\target\reports\TEST-mypybuilder_tests.Test-20190211113519.xml

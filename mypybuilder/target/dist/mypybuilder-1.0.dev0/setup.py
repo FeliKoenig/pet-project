@@ -27,7 +27,7 @@ if __name__ == '__main__':
         author_email = '',
         license = '',
         url = '',
-        scripts = ['scripts/greeter'],
+        scripts = ['scripts/greeter.py'],
         packages = ['mypybuilder'],
         namespace_packages = [],
         py_modules = [],

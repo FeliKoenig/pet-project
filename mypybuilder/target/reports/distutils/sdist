@@ -5,10 +5,10 @@ running clean
 running sdist
 running egg_info
 creating mypybuilder.egg-info
-writing namespace_packages to mypybuilder.egg-info\namespace_packages.txt
-writing dependency_links to mypybuilder.egg-info\dependency_links.txt
 writing mypybuilder.egg-info\PKG-INFO
 writing top-level names to mypybuilder.egg-info\top_level.txt
+writing dependency_links to mypybuilder.egg-info\dependency_links.txt
+writing namespace_packages to mypybuilder.egg-info\namespace_packages.txt
 writing manifest file 'mypybuilder.egg-info\SOURCES.txt'
 reading manifest file 'mypybuilder.egg-info\SOURCES.txt'
 writing manifest file 'mypybuilder.egg-info\SOURCES.txt'
@@ -32,7 +32,7 @@ copying mypybuilder.egg-info\dependency_links.txt -> mypybuilder-1.0.dev0\mypybu
 copying mypybuilder.egg-info\namespace_packages.txt -> mypybuilder-1.0.dev0\mypybuilder.egg-info
 copying mypybuilder.egg-info\top_level.txt -> mypybuilder-1.0.dev0\mypybuilder.egg-info
 copying mypybuilder.egg-info\zip-safe -> mypybuilder-1.0.dev0\mypybuilder.egg-info
-copying scripts\greeter -> mypybuilder-1.0.dev0\scripts
+copying scripts\greeter.py -> mypybuilder-1.0.dev0\scripts
 Writing mypybuilder-1.0.dev0\setup.cfg
 creating dist
 Creating tar archive

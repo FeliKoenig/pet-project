@@ -6,4 +6,4 @@ mypybuilder.egg-info/dependency_links.txt
 mypybuilder.egg-info/namespace_packages.txt
 mypybuilder.egg-info/top_level.txt
 mypybuilder.egg-info/zip-safe
-scripts/greeter
+scripts/greeter.py
